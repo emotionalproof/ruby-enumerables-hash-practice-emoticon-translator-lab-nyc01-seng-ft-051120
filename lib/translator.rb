@@ -5,11 +5,9 @@ require 'yaml'
 
 def load_library(file)
   emo = YAML.load_file(file)
-
   emo.each do |k, v|
     emo[k] = {:english => v[0], :japanese => v[1]}
   end
-
   emo
 end
 
@@ -29,7 +27,6 @@ end
 
 def get_english_meaning(file, emoticon)
   emo = load_library(file)
-
   emo.each do |emotion, translations|
     if emo[emotion][:japanese] == emoticon
       return emotion
